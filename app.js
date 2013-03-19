@@ -40,6 +40,16 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+//vista index -> localhost:3000/app
+app.get('/app',function(req,res){
+    Tarea.find({},function (err,docs){
+    res.render('app/index',{
+        title: 'Vista index lista de tareas',
+        docs : docs
+    });
+    });
+}); 
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
