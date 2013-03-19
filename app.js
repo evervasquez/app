@@ -10,13 +10,16 @@ var express = require('express')
   , path = require('path')
   , mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/tareas", function (err){
-    if (!err){
-        console.log("Conectado a MongoDB")
-    }else{
-        throw err
-    }
-})
+mongoose.connect("mongodb://localhost/tareas")
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
+
+var Tarea = new Schema({
+    tarea: String
+});
+
+var Tarea = mongoose.model("Tarea", Tarea);
+
 var app = express();
 
 app.configure(function(){
