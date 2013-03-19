@@ -7,8 +7,16 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , mongoose = require("mongoose");
 
+mongoose.connect("mongodb://localhost/tareas", function (err){
+    if (!err){
+        console.log("Conectado a MongoDB")
+    }else{
+        throw err
+    }
+})
 var app = express();
 
 app.configure(function(){
