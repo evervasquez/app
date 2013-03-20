@@ -50,6 +50,22 @@ app.get('/app',function(req,res){
     });
 }); 
 
+app.get('/app/nueva',function(req,res){
+    res.render('app/nueva.jade',{
+        title: 'Nueva Tarea'
+    });
+});
+
+app.post('/app',function (req,res){
+    var tarea = new Tarea(req.body.tarea);
+    tarea.save(function (err){
+        if(!err){
+            res.redirect('/app');
+        }else{
+            res.redirect('/app/nueva')
+        }
+    });
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
