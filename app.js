@@ -51,7 +51,7 @@ app.get('/app',function(req,res){
 }); 
 
 app.get('/app/nueva',function(req,res){
-    res.render('app/nueva.jade',{
+    res.render('app/nueva',{
         title: 'Nueva Tarea'
     });
 });

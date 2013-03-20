@@ -2,13 +2,13 @@
 block content
   h1 Mis Tareas
   p
-  a(href='/app/nueva' class='btn_primary') Add una Tarea
+    a(href="/app/nueva")  Add Nueva Tarea
 - if(docs.length)
   table
     tr
       th Tarea
         each tarea in docs
           tr
-            td #(tarea.tarea)
+            td #{tarea.tarea}
 -else
   p No tienes ninguna tarea
